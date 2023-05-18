@@ -19,7 +19,33 @@
  * print every person's name using the method printName of each object
  * print out the sum of their ages using calculateAge() method
  */
-class Person {}
+class Person {
+  constructor(firstName, lastName, gender, birthYear) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.gender = gender;
+    this.birthYear = birthYear;
+  }
+
+  calculateAge(currentYear) {
+    return currentYear - this.birthYear;
+  }
+}
+
+const person1 = new Person("Nouf", "Alajmi", "female", 1994);
+
+console.log(person1.firstName + " " + person1.lastName);
+
+const person2 = new Person("Noura", "Alajmi", "female", 1993);
+console.log(person2.firstName + " " + person2.lastName);
+const person3 = new Person("farah", "Alajmi", "female", 1996);
+console.log(person2.firstName, person2.lastName);
+
+const currentYear = 2023;
+
+console.log(person1.calculateAge(currentYear));
+console.log(person2.calculateAge(currentYear));
+console.log(person3.calculateAge(currentYear));
 
 /** (Question 2): (15000 Points)
  * 1. Write a class `Movie`, give it the following properties
@@ -42,7 +68,39 @@ class Person {}
  *      (*BONUS*): use the method reduce to calculate the average
  */
 
-class Movie {}
+class Movie {
+  rating = [];
+
+  constructor(title, duration, genre) {
+    this.title = title;
+    this.duration = duration;
+    this.genre = genre;
+  }
+  rate(rating) {
+    if (rating > 0 && rating < 10) {
+      this.rating.push(rating);
+    }
+  }
+
+  averageRating() {
+    const average =
+      this.rating.reduce((acc, cu) => acc + cu, 0) / this.rating.length;
+    return average;
+  }
+
+  // average = sumOfValues / countOfValues;
+}
+const movie1 = new Movie(" Harry Potter", 250, "novel");
+const movie2 = new Movie(" pride and prejudes", 300, "novel");
+const movie3 = new Movie(" the lion king", 100, "drama");
+const movie4 = new Movie(" beauty and the beast", 250, "drama");
+
+movie1.rate(9);
+movie1.rate(8);
+movie2.rate(9);
+movie3.rate(7);
+movie4.rate(6);
+console.log(movie1.averageRating());
 
 // console.log(averageRating(rating));
 /** (Question 3): (1000 Points)
@@ -55,4 +113,9 @@ class Movie {}
  */
 
 // write the class here
-class Actor extends Person {}
+class Actor extends Person {
+  movies = [];
+  addMovie(movie) {
+    this.movies.push(movie);
+  }
+}
