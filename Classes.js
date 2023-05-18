@@ -19,9 +19,7 @@
  * print every person's name using the method printName of each object
  * print out the sum of their ages using calculateAge() method
  */
-class Person {
-  // continue the code here
-}
+class Person {}
 
 /** (Question 2): (15000 Points)
  * 1. Write a class `Movie`, give it the following properties
@@ -44,10 +42,9 @@ class Person {
  *      (*BONUS*): use the method reduce to calculate the average
  */
 
-class Movie {
-  // continue the code here
-}
+class Movie {}
 
+// console.log(averageRating(rating));
 /** (Question 3): (1000 Points)
  * 1. Create a class `Actor` that inherits `Person`, and adds the following properties
  * - movies: array of `Movie`
@@ -58,3 +55,4 @@ class Movie {
  */
 
 // write the class here
+class Actor extends Person {}
