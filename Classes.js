@@ -26,27 +26,26 @@ class Person {
     this.gender = gender;
     this.birthYear = birthYear;
   }
+  printName() {
+    console.log(this.firstName, this.lastName);
+  }
 
   calculateAge(currentYear) {
-    return currentYear - this.birthYear;
+    currentYear = 2023;
+    const age = currentYear - this.birthYear;
+    return age;
   }
 }
-
+// const currentYear = 2023;
 const person1 = new Person("Nouf", "Alajmi", "female", 1994);
+const person2 = new Person("Noor", "Alajmi", "female", 1997);
+const person3 = new Person("Mohammad", "Alajmi", "male", 1993);
+person1.printName();
+person2.printName();
+person3.printName();
 
-console.log(person1.firstName + " " + person1.lastName);
-
-const person2 = new Person("Noura", "Alajmi", "female", 1993);
-console.log(person2.firstName + " " + person2.lastName);
-const person3 = new Person("farah", "Alajmi", "female", 1996);
-console.log(person2.firstName, person2.lastName);
-
-const currentYear = 2023;
-
-console.log(person1.calculateAge(currentYear));
-console.log(person2.calculateAge(currentYear));
-console.log(person3.calculateAge(currentYear));
-
+console.log(person1.calculateAge());
+console.log(person2.calculateAge());
 /** (Question 2): (15000 Points)
  * 1. Write a class `Movie`, give it the following properties
  * - title
@@ -70,7 +69,6 @@ console.log(person3.calculateAge(currentYear));
 
 class Movie {
   rating = [];
-
   constructor(title, duration, genre) {
     this.title = title;
     this.duration = duration;
@@ -81,28 +79,34 @@ class Movie {
       this.rating.push(rating);
     }
   }
+  averageRating(average) {
+    // this.rating.forEach((num) => (num + num) / this.rating.length);
 
-  averageRating() {
-    const average =
-      this.rating.reduce((acc, cu) => acc + cu, 0) / this.rating.length;
+    average =
+      this.rating.reduce((num1, num2) => num1 + num2, 0) / this.rating.length;
     return average;
+
+    // average = rating.forEach(
+
+    // (average = this.rating.reduce(function (acc, cu) {
+    //   const updatedSum = acc + cu;
+    //   return updatedSum;
+    // }, 0)) / this.rating.length;
   }
-
-  // average = sumOfValues / countOfValues;
 }
-const movie1 = new Movie(" Harry Potter", 250, "novel");
-const movie2 = new Movie(" pride and prejudes", 300, "novel");
-const movie3 = new Movie(" the lion king", 100, "drama");
-const movie4 = new Movie(" beauty and the beast", 250, "drama");
+const movie1 = new Movie("harryPotter", 2.5, "Fantasy literature");
 
+const movie2 = new Movie("the lion King", 200, "Animation");
+const movie3 = new Movie("Pride and prejudice", 200, "Romance novel");
+const movie4 = new Movie("The international", 2, "Action");
 movie1.rate(9);
 movie1.rate(8);
-movie2.rate(9);
-movie3.rate(7);
-movie4.rate(6);
+movie1.rate(8);
+movie1.rate(9);
 console.log(movie1.averageRating());
+console.log(movie1);
 
-// console.log(averageRating(rating));
+// console.log(movie1.averageRating());
 /** (Question 3): (1000 Points)
  * 1. Create a class `Actor` that inherits `Person`, and adds the following properties
  * - movies: array of `Movie`
@@ -115,7 +119,12 @@ console.log(movie1.averageRating());
 // write the class here
 class Actor extends Person {
   movies = [];
+
   addMovie(movie) {
     this.movies.push(movie);
   }
 }
+
+//
+// console.log();
+// }
