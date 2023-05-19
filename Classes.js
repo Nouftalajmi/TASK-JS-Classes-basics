@@ -119,12 +119,20 @@ console.log(movie1);
 // write the class here
 class Actor extends Person {
   movies = [];
+  constructor(firstName, lastName, gender, birthYear) {
+    super(firstName, lastName, gender, birthYear);
+  }
 
   addMovie(movie) {
     this.movies.push(movie);
   }
 }
 
-//
-// console.log();
+const actor1 = new Actor("john", "william", "male", 1980);
+actor1.addMovie(movie1);
+actor1.addMovie(movie2);
+console.log(actor1);
+// actor1.movies[1].title = " Nouf";
+// console.log(actor1);
+
 // }
